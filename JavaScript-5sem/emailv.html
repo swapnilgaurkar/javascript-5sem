@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Account</title>
+    <link rel="stylesheet" href="emailv.css">
+</head>
+
+<body>
+
+    <div class="background">
+        <div class="orb orb1"></div>
+        <div class="orb orb2"></div>
+        <div class="orb orb3"></div>
+    </div>
+
+
+    <!-- ================= REGISTER ================= -->
+
+    <section class="card" id="registerCard">
+
+        <div class="logo">✦</div>
+
+        <div class="badge">
+            <span></span>
+            SECURE REGISTRATION
+        </div>
+
+        <h1>Create your <strong>account.</strong></h1>
+
+        <p class="subtitle">
+            Create an account with a secure email and password.
+        </p>
+
+
+        <form id="registerForm">
+
+            <label>EMAIL ADDRESS</label>
+
+            <div class="input-box">
+
+                <span>✉</span>
+
+                <input
+                    type="email"
+                    id="registerEmail"
+                    placeholder="you@example.com"
+                    required
+                >
+
+            </div>
+
+
+            <label>PASSWORD</label>
+
+            <div class="input-box">
+
+                <span>🔒</span>
+
+                <input
+                    type="password"
+                    id="registerPassword"
+                    placeholder="Create a strong password"
+                    required
+                >
+
+                <button
+                    type="button"
+                    class="eye"
+                    onclick="togglePassword('registerPassword', this)"
+                >
+                    👁
+                </button>
+
+            </div>
+
+
+            <!-- PASSWORD RULES -->
+
+            <div class="rules">
+
+                <div class="rules-title">
+                    Password requirements
+                </div>
+
+                <div id="length" class="rule">
+                    <span>○</span>
+                    At least 8 characters
+                </div>
+
+                <div id="uppercase" class="rule">
+                    <span>○</span>
+                    One uppercase letter
+                </div>
+
+                <div id="lowercase" class="rule">
+                    <span>○</span>
+                    One lowercase letter
+                </div>
+
+                <div id="number" class="rule">
+                    <span>○</span>
+                    One number
+                </div>
+
+                <div id="symbol" class="rule">
+                    <span>○</span>
+                    One special symbol
+                </div>
+
+            </div>
+
+
+            <button class="main-btn" type="submit">
+                Create Account
+                <span>→</span>
+            </button>
+
+        </form>
+
+
+        <div id="registerMessage" class="message"></div>
+
+
+        <p class="switch">
+            Already have an account?
+
+            <button onclick="showLogin()">
+                Login
+            </button>
+        </p>
+
+    </section>
+
+
+    <!-- ================= LOGIN ================= -->
+
+    <section class="card hidden" id="loginCard">
+
+        <div class="logo">🔐</div>
+
+        <div class="badge">
+            <span></span>
+            SECURE LOGIN
+        </div>
+
+        <h1>Welcome <strong>back.</strong></h1>
+
+        <p class="subtitle">
+            Enter your credentials to access your account.
+        </p>
+
+
+        <form id="loginForm">
+
+            <label>EMAIL ADDRESS</label>
+
+            <div class="input-box">
+
+                <span>✉</span>
+
+                <input
+                    type="email"
+                    id="loginEmail"
+                    placeholder="you@example.com"
+                    required
+                >
+
+            </div>
+
+
+            <label>PASSWORD</label>
+
+            <div class="input-box">
+
+                <span>🔒</span>
+
+                <input
+                    type="password"
+                    id="loginPassword"
+                    placeholder="Enter your password"
+                    required
+                >
+
+                <button
+                    type="button"
+                    class="eye"
+                    onclick="togglePassword('loginPassword', this)"
+                >
+                    👁
+                </button>
+
+            </div>
+
+
+            <button class="main-btn" type="submit">
+                Login
+                <span>→</span>
+            </button>
+
+        </form>
+
+
+        <div id="loginMessage" class="message"></div>
+
+
+        <p class="switch">
+            Don't have an account?
+
+            <button onclick="showRegister()">
+                Create Account
+            </button>
+        </p>
+
+    </section>
+
+
+    <!-- ================= DASHBOARD ================= -->
+
+    <section class="card dashboard hidden" id="dashboard">
+
+        <div class="success-icon">
+            ✓
+        </div>
+
+        <div class="badge">
+            <span></span>
+            AUTHENTICATED
+        </div>
+
+        <h1>You're <strong>in.</strong></h1>
+
+        <p class="subtitle">
+            Login successful. Welcome to your account.
+        </p>
+
+
+        <div class="account-box">
+
+            <span>LOGGED IN AS</span>
+
+            <strong id="userEmail">
+                user@example.com
+            </strong>
+
+        </div>
+
+
+        <button class="main-btn" onclick="logout()">
+            Logout
+            <span>↗</span>
+        </button>
+
+    </section>
+
+
+    <footer>
+        Secure Authentication Demo
+        <span>•</span>
+        Frontend Only
+    </footer>
+
+
+    <script src="emailv.js"></script>
+
+</body>
+</html>

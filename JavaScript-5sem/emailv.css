@@ -1,0 +1,874 @@
+@import url(
+    'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap'
+);
+
+
+/* ==============================
+   RESET
+============================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+
+    min-height: 100vh;
+
+    font-family: "Inter", sans-serif;
+
+    background: #050816;
+
+    color: white;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 30px;
+
+    overflow: hidden;
+}
+
+
+/* ==============================
+   BACKGROUND
+============================== */
+
+.background {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: -1;
+
+    overflow: hidden;
+}
+
+
+.background::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at 50% 45%,
+            rgba(91, 83, 255, 0.14),
+            transparent 48%
+        );
+
+}
+
+
+.orb {
+
+    position: absolute;
+
+    border-radius: 50%;
+
+    filter: blur(100px);
+
+    opacity: .4;
+
+    animation: float 9s infinite ease-in-out;
+}
+
+
+.orb1 {
+
+    width: 350px;
+
+    height: 350px;
+
+    background: #5b5bf7;
+
+    top: -130px;
+
+    left: -100px;
+}
+
+
+.orb2 {
+
+    width: 300px;
+
+    height: 300px;
+
+    background: #00c6ff;
+
+    right: -100px;
+
+    bottom: -100px;
+
+    animation-delay: 2s;
+}
+
+
+.orb3 {
+
+    width: 200px;
+
+    height: 200px;
+
+    background: #b721ff;
+
+    top: 40%;
+
+    left: 55%;
+
+    animation-delay: 4s;
+}
+
+
+@keyframes float {
+
+    0%, 100% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(20px, -30px);
+    }
+
+}
+
+
+/* ==============================
+   CARD
+============================== */
+
+.card {
+
+    width: 460px;
+
+    padding: 42px;
+
+    border-radius: 28px;
+
+    background:
+        rgba(15, 20, 42, .78);
+
+    border:
+        1px solid
+        rgba(255,255,255,.1);
+
+    backdrop-filter: blur(30px);
+
+    box-shadow:
+        0 30px 90px
+        rgba(0,0,0,.55),
+
+        inset 0 1px 0
+        rgba(255,255,255,.06);
+
+    animation: appear .5s ease;
+}
+
+
+.hidden {
+    display: none !important;
+}
+
+
+@keyframes appear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(25px)
+            scale(.97);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+}
+
+
+/* ==============================
+   LOGO
+============================== */
+
+.logo {
+
+    width: 60px;
+
+    height: 60px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #7168ff,
+            #00c6ff
+        );
+
+    font-size: 27px;
+
+    margin-bottom: 22px;
+
+    box-shadow:
+        0 12px 35px
+        rgba(80,80,255,.35);
+}
+
+
+/* ==============================
+   BADGE
+============================== */
+
+.badge {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 7px 12px;
+
+    border-radius: 50px;
+
+    background:
+        rgba(80,255,170,.07);
+
+    border:
+        1px solid
+        rgba(80,255,170,.15);
+
+    color: #78ffb3;
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 18px;
+}
+
+
+.badge span {
+
+    width: 6px;
+
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: #50ff9d;
+
+    box-shadow:
+        0 0 10px #50ff9d;
+}
+
+
+/* ==============================
+   HEADING
+============================== */
+
+h1 {
+
+    font-size: 39px;
+
+    letter-spacing: -1.5px;
+
+    margin-bottom: 12px;
+}
+
+
+h1 strong {
+
+    background:
+        linear-gradient(
+            90deg,
+            #8178ff,
+            #00d4ff
+        );
+
+    background-clip: text;
+
+    -webkit-background-clip: text;
+
+    color: transparent;
+}
+
+
+.subtitle {
+
+    color: #8c94b2;
+
+    font-size: 12px;
+
+    line-height: 1.7;
+
+    margin-bottom: 27px;
+}
+
+
+/* ==============================
+   LABEL
+============================== */
+
+label {
+
+    display: block;
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+
+    color: #777f9d;
+
+    margin-bottom: 8px;
+}
+
+
+/* ==============================
+   INPUT
+============================== */
+
+.input-box {
+
+    position: relative;
+
+    margin-bottom: 18px;
+}
+
+
+.input-box > span {
+
+    position: absolute;
+
+    left: 15px;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    font-size: 14px;
+
+    color: #727a99;
+
+    z-index: 2;
+}
+
+
+.input-box input {
+
+    width: 100%;
+
+    padding: 15px 45px;
+
+    background:
+        rgba(4,7,20,.7);
+
+    border:
+        1px solid
+        rgba(255,255,255,.1);
+
+    border-radius: 13px;
+
+    outline: none;
+
+    color: white;
+
+    font-size: 12px;
+
+    transition: .25s;
+}
+
+
+.input-box input:focus {
+
+    border-color: #7168ff;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(113,104,255,.1),
+
+        0 0 20px
+        rgba(113,104,255,.08);
+}
+
+
+.input-box input::placeholder {
+
+    color: #525a77;
+}
+
+
+/* ==============================
+   PASSWORD EYE
+============================== */
+
+.eye {
+
+    position: absolute;
+
+    right: 5px;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: 38px;
+
+    height: 38px;
+
+    background: transparent;
+
+    border: none;
+
+    color: #777f9d;
+
+    cursor: pointer;
+
+    font-size: 14px;
+}
+
+
+.eye:hover {
+
+    background:
+        rgba(255,255,255,.05);
+
+    border-radius: 10px;
+}
+
+
+/* ==============================
+   PASSWORD RULES
+============================== */
+
+.rules {
+
+    padding: 15px 17px;
+
+    margin-top: 3px;
+
+    margin-bottom: 18px;
+
+    border-radius: 14px;
+
+    background:
+        rgba(255,255,255,.025);
+
+    border:
+        1px solid
+        rgba(255,255,255,.06);
+}
+
+
+.rules-title {
+
+    color: #777f9d;
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 11px;
+}
+
+
+.rule {
+
+    color: #636c89;
+
+    font-size: 10px;
+
+    margin: 7px 0;
+
+    transition: .25s;
+}
+
+
+.rule span {
+
+    display: inline-block;
+
+    width: 17px;
+}
+
+
+.rule.valid {
+
+    color: #62ffac;
+}
+
+
+/* ==============================
+   BUTTON
+============================== */
+
+.main-btn {
+
+    width: 100%;
+
+    padding: 16px;
+
+    border: none;
+
+    border-radius: 13px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #7168ff,
+            #536dfe
+        );
+
+    color: white;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    box-shadow:
+        0 12px 30px
+        rgba(80,80,255,.25);
+
+    transition: .25s;
+}
+
+
+.main-btn:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 17px 38px
+        rgba(80,80,255,.4);
+}
+
+
+.main-btn:active {
+
+    transform: translateY(0);
+}
+
+
+.main-btn span {
+
+    font-size: 19px;
+
+    transition: .25s;
+}
+
+
+.main-btn:hover span {
+
+    transform: translateX(4px);
+}
+
+
+/* ==============================
+   MESSAGE
+============================== */
+
+.message {
+
+    margin-top: 15px;
+
+    padding: 12px;
+
+    border-radius: 11px;
+
+    text-align: center;
+
+    font-size: 11px;
+
+    animation: messageAppear .3s ease;
+}
+
+
+.message.success {
+
+    color: #65ffad;
+
+    background:
+        rgba(70,255,160,.07);
+
+    border:
+        1px solid
+        rgba(70,255,160,.15);
+}
+
+
+.message.error {
+
+    color: #ff718a;
+
+    background:
+        rgba(255,70,100,.07);
+
+    border:
+        1px solid
+        rgba(255,70,100,.15);
+
+    animation: shake .35s ease;
+}
+
+
+@keyframes messageAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+@keyframes shake {
+
+    25% {
+        transform: translateX(-5px);
+    }
+
+    75% {
+        transform: translateX(5px);
+    }
+
+}
+
+
+/* ==============================
+   SWITCH
+============================== */
+
+.switch {
+
+    text-align: center;
+
+    color: #666e8b;
+
+    font-size: 10px;
+
+    margin-top: 22px;
+}
+
+
+.switch button {
+
+    border: none;
+
+    background: none;
+
+    color: #7c74ff;
+
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+
+/* ==============================
+   DASHBOARD
+============================== */
+
+.dashboard {
+
+    text-align: center;
+}
+
+
+.success-icon {
+
+    width: 75px;
+
+    height: 75px;
+
+    margin:
+        0 auto 20px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    border-radius: 50%;
+
+    color: #61ffad;
+
+    background:
+        rgba(70,255,160,.08);
+
+    border:
+        1px solid
+        rgba(70,255,160,.2);
+
+    font-size: 32px;
+
+    box-shadow:
+        0 0 35px
+        rgba(70,255,160,.12);
+
+    animation: successPop .5s ease;
+}
+
+
+@keyframes successPop {
+
+    from {
+
+        transform: scale(.5);
+
+        opacity: 0;
+    }
+
+    to {
+
+        transform: scale(1);
+
+        opacity: 1;
+    }
+
+}
+
+
+.account-box {
+
+    text-align: left;
+
+    padding: 17px;
+
+    margin: 22px 0;
+
+    border-radius: 13px;
+
+    background:
+        rgba(255,255,255,.03);
+
+    border:
+        1px solid
+        rgba(255,255,255,.07);
+}
+
+
+.account-box span {
+
+    display: block;
+
+    color: #626a87;
+
+    font-size: 8px;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 7px;
+}
+
+
+.account-box strong {
+
+    color: #dce1f5;
+
+    font-size: 12px;
+}
+
+
+/* ==============================
+   FOOTER
+============================== */
+
+footer {
+
+    position: fixed;
+
+    bottom: 15px;
+
+    color: #4d5573;
+
+    font-size: 9px;
+
+    letter-spacing: .5px;
+}
+
+
+footer span {
+
+    margin: 0 7px;
+}
+
+
+/* ==============================
+   MOBILE
+============================== */
+
+@media(max-width: 520px) {
+
+    body {
+        padding: 20px 15px;
+        overflow-y: auto;
+    }
+
+    .card {
+
+        width: 100%;
+
+        padding: 30px 23px;
+
+    }
+
+    h1 {
+
+        font-size: 32px;
+
+    }
+
+    footer {
+
+        display: none;
+
+    }
+
+}

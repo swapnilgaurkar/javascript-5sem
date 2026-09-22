@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Registration</title>
+    <link rel="stylesheet" href="form.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Student Registration</h1>
+    <p class="subtitle">College Admission Registration Form</p>
+
+    <form id="studentForm">
+
+        <h3>Personal Information</h3>
+
+        <div class="row">
+            <div>
+                <label>First Name <span>*</span></label>
+                <input type="text" id="firstname" placeholder="Enter first name">
+            </div>
+
+            <div>
+                <label>Last Name <span>*</span></label>
+                <input type="text" id="lastname" placeholder="Enter last name">
+            </div>
+        </div>
+
+        <label>Date of Birth <span>*</span></label>
+
+        <div class="birthday">
+            <select id="day">
+                <option value="">Day</option>
+            </select>
+
+            <select id="month">
+                <option value="">Month</option>
+                <option>January</option>
+                <option>February</option>
+                <option>March</option>
+                <option>April</option>
+                <option>May</option>
+                <option>June</option>
+                <option>July</option>
+                <option>August</option>
+                <option>September</option>
+                <option>October</option>
+                <option>November</option>
+                <option>December</option>
+            </select>
+
+            <select id="year">
+                <option value="">Year</option>
+            </select>
+        </div>
+
+        <label>Gender <span>*</span></label>
+
+        <select id="gender">
+            <option value="">Select Gender</option>
+            <option>Male</option>
+            <option>Female</option>
+            <option>Other</option>
+        </select>
+
+        <h3>Contact Information</h3>
+
+        <label>E-mail <span>*</span></label>
+        <input type="text" id="email" placeholder="example@gmail.com">
+
+        <label>Mobile Number <span>*</span></label>
+        <input type="text" id="mobile" placeholder="10-digit mobile number">
+
+        <div class="row">
+            <div>
+                <label>State <span>*</span></label>
+                <select id="state">
+                    <option value="">Select State</option>
+                    <option>Maharashtra</option>
+                    <option>Gujarat</option>
+                    <option>Karnataka</option>
+                    <option>Madhya Pradesh</option>
+                    <option>Goa</option>
+                    <option>Rajasthan</option>
+                    <option>Delhi</option>
+                    <option>Telangana</option>
+                </select>
+            </div>
+
+            <div>
+                <label>City <span>*</span></label>
+                <input type="text" id="city" placeholder="Enter city">
+            </div>
+        </div>
+
+        <h3>Account Information</h3>
+
+        <label>Username <span>*</span></label>
+        <input type="text" id="username" placeholder="Create username">
+
+        <label>Password <span>*</span></label>
+        <input type="password" id="password" placeholder="Create password">
+
+        <label>Re-password <span>*</span></label>
+        <input type="password" id="repassword" placeholder="Confirm password">
+
+        <label>Website</label>
+        <input type="text" id="website" placeholder="https://example.com">
+
+        <div class="terms">
+            <input type="checkbox" id="terms">
+            <label for="terms">I agree to the Terms & Conditions</label>
+        </div>
+
+        <button type="submit">Register Student</button>
+
+        <p id="message"></p>
+
+    </form>
+
+</div>
+
+<script src="form.js"></script>
+
+</body>
+</html>

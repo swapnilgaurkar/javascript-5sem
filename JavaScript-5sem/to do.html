@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My To-Do List</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+
+        .container {
+            width: 450px;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            margin-bottom: 8px;
+            font-size: 32px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #eee;
+            margin-bottom: 25px;
+        }
+
+        .input-box {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        #taskInput {
+            flex: 1;
+            padding: 14px;
+            border: none;
+            outline: none;
+            border-radius: 10px;
+            font-size: 15px;
+        }
+
+        #addBtn {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 10px;
+            background: #22c55e;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        #addBtn:hover {
+            background: #16a34a;
+        }
+
+        .task-heading {
+            display: flex;
+            justify-content: space-between;
+            color: white;
+            margin-bottom: 12px;
+        }
+
+        #count {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 13px;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+            padding: 12px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+        }
+
+        .task-text {
+            color: #333;
+            max-width: 240px;
+            word-wrap: break-word;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 6px;
+        }
+
+        .edit,
+        .delete {
+            border: none;
+            padding: 7px 10px;
+            border-radius: 6px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .edit {
+            background: #f59e0b;
+        }
+
+        .edit:hover {
+            background: #d97706;
+        }
+
+        .delete {
+            background: #ef4444;
+        }
+
+        .delete:hover {
+            background: #dc2626;
+        }
+
+        .empty {
+            text-align: center;
+            color: white;
+            padding: 15px;
+        }
+
+        .footer {
+            text-align: center;
+            color: #ddd;
+            margin-top: 20px;
+            font-size: 13px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>✨ My To-Do List</h1>
+
+        <p class="subtitle">
+            Organize your day, one task at a time.
+        </p>
+
+        <div class="input-box">
+
+            <input
+                type="text"
+                id="taskInput"
+                placeholder="What needs to be done?"
+            >
+
+            <button id="addBtn" onclick="addTask()">
+                + Add
+            </button>
+
+        </div>
+
+        <div class="task-heading">
+
+            <h3>Your Tasks</h3>
+
+            <span id="count">0 tasks</span>
+
+        </div>
+
+        <ul id="taskList">
+
+            <li class="empty" id="emptyMessage">
+                No tasks yet. Add one! 🚀
+            </li>
+
+        </ul>
+
+        <div class="footer">
+            Stay productive 🚀
+        </div>
+
+    </div>
+
+    <script>
+
+        let input = document.getElementById("taskInput");
+        let taskList = document.getElementById("taskList");
+        let count = document.getElementById("count");
+
+        function addTask() {
+
+            let taskText = input.value.trim();
+
+            if (taskText == "") {
+                alert("Please enter a task!");
+                return;
+            }
+
+            let emptyMessage = document.getElementById("emptyMessage");
+
+            if (emptyMessage != null) {
+                emptyMessage.remove();
+            }
+
+            let li = document.createElement("li");
+
+            let span = document.createElement("span");
+            span.textContent = taskText;
+            span.className = "task-text";
+
+            let buttons = document.createElement("div");
+            buttons.className = "buttons";
+
+            let editButton = document.createElement("button");
+            editButton.textContent = "Edit";
+            editButton.className = "edit";
+
+            let deleteButton = document.createElement("button");
+            deleteButton.textContent = "Delete";
+            deleteButton.className = "delete";
+
+            buttons.appendChild(editButton);
+            buttons.appendChild(deleteButton);
+
+            li.appendChild(span);
+            li.appendChild(buttons);
+
+            taskList.appendChild(li);
+
+            input.value = "";
+
+            updateCount();
+
+            editButton.addEventListener("click", function() {
+
+                let currentTask = this.parentElement.parentElement;
+
+                let taskName = currentTask.children[0];
+
+                let newTask = prompt(
+                    "Edit your task:",
+                    taskName.textContent
+                );
+
+                if (newTask != null && newTask.trim() != "") {
+                    taskName.textContent = newTask.trim();
+                }
+
+            });
+
+            deleteButton.addEventListener("click", function() {
+
+                let currentTask = this.parentElement.parentElement;
+
+                currentTask.remove();
+
+                updateCount();
+
+                if (taskList.children.length == 0) {
+
+                    let message = document.createElement("li");
+
+                    message.textContent = "No tasks yet. Add one! 🚀";
+
+                    message.className = "empty";
+                    message.id = "emptyMessage";
+
+                    taskList.appendChild(message);
+                }
+
+            });
+        }
+
+        function updateCount() {
+
+            let totalTasks = taskList.children.length;
+
+            let emptyMessage = document.getElementById("emptyMessage");
+
+            if (emptyMessage != null) {
+                totalTasks = 0;
+            }
+
+            count.textContent =
+                totalTasks +
+                (totalTasks == 1 ? " task" : " tasks");
+        }
+
+        input.addEventListener("keypress", function(event) {
+
+            if (event.key == "Enter") {
+                addTask();
+            }
+
+        });
+
+    </script>
+
+</body>
+</html>

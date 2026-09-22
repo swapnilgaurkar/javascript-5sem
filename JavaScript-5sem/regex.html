@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantum Data Regex Extractor</title>
+    <link rel="stylesheet" href="regex.css">
+</head>
+<body>
+
+    <div class="matrix-bg"></div>
+
+    <div class="container">
+        <header>
+            <div class="system-status">SYS_STATUS: ONLINE // SECURE_NODE</div>
+            <h1>Data Regex Extractor</h1>
+            <p class="subtitle">Extract, validate, and transform data streams via Regular Expressions</p>
+        </header>
+
+        <!-- Input Area -->
+        <div class="input-section">
+            <label for="rawText"><span class="terminal-char">&gt;</span> Input Raw Text Stream:</label>
+            <textarea id="rawText" placeholder="Student Name: John Doe
+PRN: 202611049218
+Email Address: john.doe@university.edu
+Phone Number: 9876543210
+Department: Computer Science">Student Name: John Doe
+PRN: 202611049218
+Email Address: john.doe@university.edu
+Phone Number: 9876543210
+Department: Computer Science</textarea>
+            <button id="processBtn">Execute Parsing Core</button>
+        </div>
+
+        <!-- Output Area -->
+        <div class="output-section hidden" id="outputWrapper">
+            
+            <div class="card">
+                <h2>// Extracted Data Matrices</h2>
+                <div class="grid">
+                    <div class="label">[01] Student Name:</div>
+                    <div class="value text-glow" id="outName">-</div>
+                    
+                    <div class="label">[02] PRN String:</div>
+                    <div class="value text-glow" id="outPrn">-</div>
+                    
+                    <div class="label">[03] Email Endpoint:</div>
+                    <div class="value">
+                        <span id="outEmail" class="text-glow">-</span> 
+                        <span id="emailStatus" class="badge">-</span>
+                    </div>
+                    
+                    <div class="label">[04] Phone Comm Line:</div>
+                    <div class="value">
+                        <span id="outPhone" class="text-glow">-</span> 
+                        <span id="phoneStatus" class="badge">-</span>
+                    </div>
+                    
+                    <div class="label">[05] Department Hub:</div>
+                    <div class="value text-glow" id="outDept">-</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>// Stream Telemetry Statistics</h2>
+                <div class="grid mini">
+                    <div class="label">Total Word Blocks:</div>
+                    <div class="value font-bold neon-cyan" id="statWords">0</div>
+                    
+                    <div class="label">Total Data Bits (Chars No Spaces):</div>
+                    <div class="value font-bold neon-cyan" id="statChars">0</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>// Lowercase Mutated Output</h2>
+                <textarea id="outLowercase" readonly></textarea>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="regex.js"></script>
+</body>
+</html>

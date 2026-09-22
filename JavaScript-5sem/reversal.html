@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Reverse Text</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background:
+                radial-gradient(circle at top left, #4f46e5, transparent 40%),
+                radial-gradient(circle at bottom right, #9333ea, transparent 40%),
+                #0f172a;
+        }
+
+        .container {
+            width: 480px;
+            padding: 35px;
+
+            background: rgba(255, 255, 255, 0.10);
+            backdrop-filter: blur(20px);
+
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 24px;
+
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
+        }
+
+        .icon {
+            width: 65px;
+            height: 65px;
+
+            margin: 0 auto 18px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            border-radius: 18px;
+
+            background: linear-gradient(135deg, #6366f1, #a855f7);
+
+            font-size: 30px;
+
+            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.4);
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            font-size: 32px;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #cbd5e1;
+            font-size: 14px;
+            margin-bottom: 28px;
+        }
+
+        .input-label {
+            color: #e2e8f0;
+            font-size: 13px;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .input-box {
+            position: relative;
+        }
+
+        input {
+            width: 100%;
+            padding: 16px;
+
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+
+            outline: none;
+
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+
+            font-size: 16px;
+        }
+
+        input::placeholder {
+            color: #94a3b8;
+        }
+
+        input:focus {
+            border-color: #818cf8;
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+        }
+
+        button {
+            width: 100%;
+            margin-top: 14px;
+            padding: 15px;
+
+            border: none;
+            border-radius: 12px;
+
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+
+            color: white;
+
+            font-size: 16px;
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.2s;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.35);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .output-box {
+            margin-top: 25px;
+            padding: 18px;
+
+            border-radius: 14px;
+
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .output-title {
+            color: #a5b4fc;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+
+            margin-bottom: 10px;
+        }
+
+        #result {
+            display: block;
+
+            color: white;
+            font-size: 20px;
+
+            min-height: 25px;
+            word-break: break-word;
+        }
+
+        .example {
+            margin-top: 22px;
+
+            display: flex;
+            justify-content: space-between;
+
+            color: #94a3b8;
+            font-size: 12px;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 25px;
+
+            color: #64748b;
+            font-size: 12px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="icon">
+            ↔
+        </div>
+
+        <h1>Reverse Text</h1>
+
+        <p class="subtitle">
+            Flip your text backwards instantly
+        </p>
+
+        <label class="input-label">
+            Enter your text
+        </label>
+
+        <div class="input-box">
+
+            <input
+                type="text"
+                id="inputText"
+                placeholder="Try: hello world"
+            >
+
+        </div>
+
+        <button onclick="reverseText()">
+            Reverse Text ✨
+        </button>
+
+        <div class="output-box">
+
+            <div class="output-title">
+                Reversed Result
+            </div>
+
+            <span id="result">
+                Your result will appear here
+            </span>
+
+        </div>
+
+        <div class="example">
+            <span>Example</span>
+            <span>hello world → dlrow olleh</span>
+        </div>
+
+        <div class="footer">
+            Simple • Fast • Interactive
+        </div>
+
+    </div>
+
+
+    <script>
+
+        let input = document.getElementById("inputText");
+        let result = document.getElementById("result");
+
+        function reverseText() {
+
+            let text = input.value;
+
+            if (text == "") {
+                result.textContent = "Please enter some text.";
+                return;
+            }
+
+            let reversed = text.split("").reverse().join("");
+
+            result.textContent = reversed;
+        }
+
+        input.addEventListener("keypress", function(event) {
+
+            if (event.key == "Enter") {
+                reverseText();
+            }
+
+        });
+
+    </script>
+
+</body>
+</html>

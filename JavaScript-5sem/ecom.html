@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>GAURkart - Product Filter</title>
+
+    <link rel="stylesheet" href="ecom.css">
+</head>
+
+<body>
+
+    <header>
+
+        <div class="logo">
+    <span>GAUR</span>kart
+</div>
+
+        <div class="header-right">
+
+            <div class="header-text">
+                Smart Shopping
+            </div>
+
+            <button id="cartBtn" class="cart-btn">
+                🛒 Cart
+                <span id="cartCount">0</span>
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <main>
+
+        <section class="hero">
+
+            <div>
+
+                <span class="tag">
+                    PRODUCT EXPLORER
+                </span>
+
+                <h1>
+                    Find what you<br>
+                    are looking for.
+                </h1>
+
+                <p>
+                    Search through our collection and discover
+                    products that match your needs.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <section class="filter-area">
+
+            <form id="searchForm">
+
+                <div class="search-wrapper">
+
+                    <span class="search-icon">⌕</span>
+
+                    <input
+                        type="text"
+                        id="searchBox"
+                        placeholder="Search for products..."
+                    >
+
+                </div>
+
+
+                <div class="category-wrapper">
+
+                    <label for="category">
+                        CATEGORY
+                    </label>
+
+                    <select id="category">
+
+                        <option value="All">
+                            All Products
+                        </option>
+
+                        <option value="Electronics">
+                            Electronics
+                        </option>
+
+                        <option value="Clothing">
+                            Clothing
+                        </option>
+
+                        <option value="Books">
+                            Books
+                        </option>
+
+                        <option value="Accessories">
+                            Accessories
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <button type="submit" id="searchBtn">
+                    Search
+                </button>
+
+
+                <button type="button" id="clearBtn">
+                    Reset
+                </button>
+
+            </form>
+
+
+            <div id="errorMessage"></div>
+
+        </section>
+
+
+        <section class="products-section">
+
+            <div class="section-top">
+
+                <div>
+
+                    <p class="small-title">
+                        OUR COLLECTION
+                    </p>
+
+                    <h2>
+                        Explore Products
+                    </h2>
+
+                </div>
+
+                <div id="productCount">
+                    8 items
+                </div>
+
+            </div>
+
+
+            <div id="productList" class="product-list"></div>
+
+
+            <div id="noProducts" class="no-products">
+
+                <div class="no-icon">
+                    ⌁
+                </div>
+
+                <h2>
+                    No products found
+                </h2>
+
+                <p>
+                    Try another product name or category.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+    GAURkart © 2026 | Quality products, simple shopping.
+</footer>
+
+
+    <div id="cartPanel" class="cart-panel">
+
+        <div class="cart-header">
+
+            <h2>
+                Your Cart
+            </h2>
+
+            <button id="closeCart">
+                ×
+            </button>
+
+        </div>
+
+
+        <div id="cartItems" class="cart-items"></div>
+
+
+        <div id="emptyCart" class="empty-cart">
+
+            <div>
+                🛒
+            </div>
+
+            <p>
+                Your cart is empty
+            </p>
+
+        </div>
+
+
+        <div class="cart-footer">
+
+            <div class="total">
+
+                <span>
+                    Total
+                </span>
+
+                <strong id="cartTotal">
+                    ₹0
+                </strong>
+
+            </div>
+
+            <button id="clearCart">
+                Clear Cart
+            </button>
+
+            <button id="checkoutBtn">
+                Proceed to Checkout
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div id="overlay"></div>
+
+
+    <script src="ecom.js"></script>
+
+</body>
+
+</html>
